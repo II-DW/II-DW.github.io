@@ -1,20 +1,37 @@
----
-layout: archive
----
-
-{{ content }}
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
 {% if paginator %}
   {% assign posts = paginator.posts %}
 {% else %}
   {% assign posts = site.posts %}
 {% endif %}
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html entries=posts type=entries_layout %}
+<div class="notion-post-grid">
+  {% for post in posts %}
+    <article class="notion-card">
+      {% if post.thumbnail %}
+        <a class="thumb" href="{{ post.url | relative_url }}">
+          <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}">
+        </a>
+      {% endif %}
+
+      <h3 class="title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+
+      <p class="excerpt">
+        {{ post.excerpt | strip_html | truncate: 120 }}
+      </p>
+
+      <div class="meta">
+        {% assign cat = post.categories | first %}
+        {% if cat %}
+          <span class="tag tag-{{ cat | downcase }}">{{ cat }}</span>
+        {% endif %}
+        <time class="date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%Y.%m.%d" }}
+        </time>
+      </div>
+    </article>
+  {% endfor %}
 </div>
 
 {% include paginator.html %}

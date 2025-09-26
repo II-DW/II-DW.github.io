@@ -7,3 +7,61 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* ===== Notion-style Blog ===== */
+
+body {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.post-card {
+  background: #2b2b2b;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.post-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.post-card p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background: #3a3a3a;
+  color: #fff;
+}
+
+.date {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  color: #888;
+}
+.tag.Math { background: #a64ca6; }   /* 보라색 */
+.tag.CV   { background: #4c6fa6; }   /* 파란색 */
+.tag.ML   { background: #4ca66f; }   /* 초록색 */
