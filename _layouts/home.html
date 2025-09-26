@@ -1,3 +1,11 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+<h3 class="archive__subtitle">Recent Posts</h3>
+
 {% if paginator %}
   {% assign posts = paginator.posts %}
 {% else %}
@@ -27,11 +35,4 @@
           <span class="tag tag-{{ cat | downcase }}">{{ cat }}</span>
         {% endif %}
         <time class="date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%Y.%m.%d" }}
-        </time>
-      </div>
-    </article>
-  {% endfor %}
-</div>
-
-{% include paginator.html %}
+          {{ post.da
