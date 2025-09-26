@@ -35,4 +35,11 @@ layout: archive
           <span class="tag tag-{{ cat | downcase }}">{{ cat }}</span>
         {% endif %}
         <time class="date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.da
+          {{ post.date | date: "%Y.%m.%d" }}
+        </time>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+{% include paginator.html %}
