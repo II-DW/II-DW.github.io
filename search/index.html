@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="머신러닝과 수학, 논문에서 구현까지. 배운 것을 연결하는 II-DW의 기술 기록."><meta name="color-scheme" content="dark"><meta name="theme-color" content="#09090b"><title>검색 · IIDW’s Main Page</title><link rel="stylesheet" href="/pagefind/pagefind-ui.css"><link rel="stylesheet" href="/_astro/Site.Dr3G1Oil.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><header class="site-header"><a class="wordmark" href="/" aria-label="IIDW 홈">IIDW</a><nav aria-label="주 탐색"><a href="/posts/">글</a><a href="/projects/">프로젝트</a><a href="/about/">소개</a><a href="/search/" aria-current="page">검색</a></nav></header><main id="main" tabindex="-1"><header class="intro"><p class="eyebrow">검색</p><h1>기록 속에서 찾기</h1><p class="lede">궁금한 개념이나 논문, 코드의 이름을 검색해 보세요.</p></header><div id="search" class="search-box" aria-label="글 검색"></div><p id="search-status" role="status">검색을 준비하고 있습니다.</p><noscript>검색에는 JavaScript가 필요합니다. <a href="/posts/">전체 글 목록</a>에서 글을 읽을 수 있습니다.</noscript><script src="/pagefind/pagefind-ui.js"></script><script>
+    const status = document.getElementById("search-status");
+    try {
+      if (!window.PagefindUI) throw new Error("Search bundle unavailable");
+      new window.PagefindUI({
+        element: "#search",
+        bundlePath: "/pagefind/",
+        showSubResults: true,
+        showImages: false,
+        translations: {
+          placeholder: "검색어를 입력하세요",
+          zero_results: "[SEARCH_TERM]에 대한 검색 결과가 없습니다",
+          clear_search: "검색어 지우기",
+          search_label: "이 사이트 검색",
+        },
+      });
+      status.textContent = "글과 소개 페이지를 검색합니다.";
+    } catch {
+      status.textContent =
+        "검색을 불러오지 못했습니다. 전체 글 목록을 이용해 주세요. 로컬 개발에서는 프로덕션 빌드 후 검색할 수 있습니다.";
+    }
+  </script></main><footer class="site-footer"><span>IIDW’s Main Page<br><small>읽고, 만들고, 다시 이해하기.</small></span><a href="https://github.com/II-DW" rel="me">GitHub · II-DW ↗</a></footer></body></html>
